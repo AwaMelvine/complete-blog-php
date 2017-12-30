@@ -55,6 +55,11 @@
 
 <!-- content -->
 	<div class="content">
+
+		<div class="message">
+			Welcome to our site!
+		</div>
+
 		<h2 class="content-title">Recent Articles</h2>
 		<hr>
 

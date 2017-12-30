@@ -236,3 +236,23 @@ form input:focus {
 	position: absolute;
 	right: 5px; bottom: 5px;
 }
+
+/* FEEDBACK MESSAGE */
+
+.message {
+	width: 100%; 
+	margin: 0px auto; 
+	padding: 10px 0px; 
+	color: #3c763d; 
+	background: #dff0d8; 
+	border: 1px solid #3c763d;
+	border-radius: 5px; 
+	text-align: center;
+}
+
+.error {
+	color: #a94442; 
+	background: #f2dede; 
+	border: 1px solid #a94442; 
+	margin-bottom: 20px;
+}
