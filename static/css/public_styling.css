@@ -284,8 +284,10 @@ html{
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: #efefef;
+  color: white;
+  background-color: #73707D;
   text-align: center;
   width: 80%;
   margin: 20px auto 0px;
+  padding: 20px 0px;
 }

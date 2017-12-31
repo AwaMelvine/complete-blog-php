@@ -110,7 +110,7 @@
 <!-- // container -->
 
 <div class="footer">
-	<h2>Footer</h2>
+	<p>MyViewers &copy; <?php echo date('Y'); ?></p>
 </div>
 
 </body>
