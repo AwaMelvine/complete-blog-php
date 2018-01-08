@@ -1,3 +1,4 @@
+<?php  include('includes/public/config.php'); ?>
 <?php  include('includes/public/head_section.php'); ?>
 
 	<title>LifeBlog | Sign in </title>

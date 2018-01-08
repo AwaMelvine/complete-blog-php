@@ -164,14 +164,12 @@ form input:focus {
 }
 .banner .login_div form h2 {
 	color: white;
-	margin-left: 45%;
-	margin-bottom: 30px;
+	margin-bottom: 20px;
     font-family: 'Noto Serif', serif;
 }
 .banner .login_div form input {
 	width: 60%;
 	color: white;
-	border-radius: 0px;
 	border: 1px solid white;
 	margin: 10px auto;
 	letter-spacing: 1.3px;
@@ -217,7 +215,7 @@ form input:focus {
 	margin-top: 0px;
 	padding: 3px 8px;
 	color: #374447;
-	background: transparent;
+	background: white;
 	display: inline-block;
 	border-radius: 2px;
 	border: 1px solid #374447;
@@ -280,9 +278,14 @@ form input:focus {
 	margin-bottom: 20px;
 }
 
-html{
-  position:relative; 
-  min-height: 100%;
+.validation_errors p {
+	text-align: left;
+	margin-left: 10px;
+}
+
+.logged_in_info {
+	text-align: right; 
+	padding: 10px;
 }
 
 .footer {

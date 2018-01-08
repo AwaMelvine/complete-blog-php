@@ -1,17 +1,5 @@
-<?php 
-	include('includes/public/config.php');
-
-?>
-<!DOCTYPE html>
-<html>
-<head>
-
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Averia+Serif+Libre|Noto+Serif|Tangerine" rel="stylesheet">
-
-<!-- Styling for public area -->
-<link rel="stylesheet" href="static/css/public_styling.css">
+<?php include('includes/public/config.php'); ?>
+<?php include('includes/public/head_section.php'); ?>
 
 <title>LifeBlog | Home </title>
 
@@ -26,6 +14,10 @@
 
 <!-- Banner -->
 	<?php include( ROOT_PATH . '/includes/public/banner.php'); ?>
+<!-- // Banner -->
+
+<!-- Banner -->
+	<?php include( ROOT_PATH . '/includes/public/messages.php'); ?>
 <!-- // Banner -->
 
 <!-- content -->
@@ -79,9 +71,10 @@
 </div>
 <!-- // container -->
 
-<div class="footer">
-	<p>MyViewers &copy; <?php echo date('Y'); ?></p>
-</div>
+
+<!-- Footer -->
+	<?php include( ROOT_PATH . '/includes/public/footer.php'); ?>
+<!-- // Footer -->
 
 </body>
 </html>

@@ -1,5 +1,3 @@
-<?php  include('includes/public/config.php'); ?>
-
 <!DOCTYPE html>
 <html>
 <head>
