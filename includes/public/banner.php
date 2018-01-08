@@ -18,11 +18,14 @@
 		</div>
 
 		<div class="login_div">
-			<form action="" >
+			<form action="index.php" method="post" >
 				<h2>Login</h2>
-				<input type="text" name="username" placeholder="Username">
+				<div style="width: 60%; margin: 0px auto;">
+					<?php include(ROOT_PATH . '/includes/public/errors.php') ?>
+				</div>
+				<input type="text" name="username" value="<?php echo $username; ?>" placeholder="Username">
 				<input type="password" name="password"  placeholder="Password"> 
-				<button class="btn" type="submit">Sign in</button>
+				<button class="btn" type="submit" name="login_btn">Sign in</button>
 			</form>
 		</div>
 	</div>

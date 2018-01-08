@@ -1,4 +1,7 @@
 <?php include('includes/public/config.php'); ?>
+
+<?php include('includes/public/registration_login.php'); ?>
+
 <?php include('includes/public/head_section.php'); ?>
 
 <title>LifeBlog | Home </title>
@@ -75,6 +78,3 @@
 <!-- Footer -->
 	<?php include( ROOT_PATH . '/includes/public/footer.php'); ?>
 <!-- // Footer -->
-
-</body>
-</html>

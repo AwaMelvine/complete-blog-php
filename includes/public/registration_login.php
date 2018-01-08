@@ -52,11 +52,42 @@
 	  	$reg_user_id = mysqli_insert_id($conn); // get id of created user
 
 	  	$_SESSION['user'] = getUserById($reg_user_id); // put logged in user into session array
-	  	
+
 	  	$_SESSION['message'] = "You are now logged in";
 	  	header('location: index.php');
 	  }
 	}
+
+
+	// LOG USER IN
+	if (isset($_POST['login_btn'])) {
+		$username = esc($_POST['username']);
+		$password = esc($_POST['password']);
+
+		if (empty($username)) { 
+			array_push($errors, "Username required"); 
+		}
+		if (empty($password)) { 
+			array_push($errors, "Password required"); 
+		}
+
+		if (count($errors) == 0) {
+			// hash password before compare with database password
+			$password = md5($password);
+
+			$sql = "SELECT * FROM users WHERE username='$username' and password='$password' LIMIT 1";
+			$result = mysqli_query($conn, $sql);
+			if (mysqli_num_rows($result) > 0) {
+				$_SESSION['user'] = getUserById($reg_user_id); // put logged in user into session array
+
+			  	$_SESSION['message'] = "You are now logged in";
+			  	header('location: index.php');
+			} else {
+				array_push($errors, 'Wrong credentials');
+			} 
+		}
+	}
+
 
 
 
