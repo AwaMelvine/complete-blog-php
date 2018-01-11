@@ -2,7 +2,15 @@
 
 <?php include('includes/public/registration_login.php'); ?>
 
+<?php include('includes/all_functions.php'); ?>
+
 <?php include('includes/public/head_section.php'); ?>
+
+<?php 
+	
+	$posts = getPublishedPosts();
+
+?>
 
 <title>LifeBlog | Home </title>
 
@@ -24,16 +32,21 @@
 <!-- // Banner -->
 
 <!-- content -->
-	<div class="content">
-		<h2 class="content-title">Recent Articles</h2>
-		<hr>
+<div class="content">
+	<h2 class="content-title">Recent Articles</h2>
+	<hr>
 
+	<?php foreach ($posts as $post): ?>
 		<div class="post" style="margin-left: 0px;">
-			<img src="static/images/post_image1.jpg" class="post_image" alt="">
-			<a href="#" class="btn category">Inspiration</a>
-			<a href="#">
+			<img src="static/images/<?php echo $post['image']; ?>" class="post_image" alt="">
+			<a 
+				href="posts_by_topics.php?slug=<?php echo $post['topic']['slug'] ?>" class="btn category">
+				<?php echo $post['topic']['name'] ?>
+			</a>
+
+			<a href="single_post.php?post-slug=<?php echo $post['slug']; ?>">
 				<div class="post_info">
-					<h3>One day your life will flash before your eyes. Make sure it's worth watching</h3>
+					<h3><?php echo $post['title'] ?></h3>
 					<div class="info">
 						<span>Dec 25, 2017</span>
 						<span class="read_more">Read more...</span>
@@ -41,33 +54,11 @@
 				</div>
 			</a>
 		</div>
-		<div class="post" >
-			<img src="static/images/post_image2.jpg" class="post_image" alt="">
-			<a href="#" class="btn category">Self-Help</a>
-			<a href="#">
-				<div class="post_info">
-					<h3>One day your life will flash before your eyes. Make sure it's worth watching</h3>
-					<div class="info">
-						<span>Dec 25, 2017</span>
-						<span class="read_more">Read more...</span>
-					</div>
-				</div>
-			</a>
-		</div>
-		<div class="post" style="margin-right: 0px;">
-			<img src="static/images/post_image3.jpg" class="post_image" alt="">
-			<a href="#" class="btn category">Reading</a>
-			<a href="#">
-				<div class="post_info">
-					<h3>One day your life will flash before your eyes. Make sure it's worth watching</h3>
-					<div class="info">
-						<span>Dec 25, 2017</span>
-						<span class="read_more">Read more...</span>
-					</div>
-				</div>
-			</a>
-		</div>
-	</div>
+	<?php endforeach ?>
+
+
+
+</div>
 <!-- // content -->
 
 

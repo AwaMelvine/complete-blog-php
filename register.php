@@ -1,7 +1,6 @@
+<!-- the order of including these files is important -->
 <?php  include('includes/public/config.php'); ?>
 <?php  include('includes/public/registration_login.php'); ?>
-
-
 
 <?php include('includes/public/head_section.php'); ?>
 
@@ -51,12 +50,9 @@
 </div>
 
 
-	</div>
-<!-- // content -->
-
-
 </div>
 <!-- // container -->
+
 
 <div class="footer">
 	<p>MyViewers &copy; <?php echo date('Y'); ?></p>
