@@ -18,19 +18,36 @@
 
 <div class="container">
 
-<!-- Navbar -->
-	<?php include( ROOT_PATH . '/includes/public/navbar.php'); ?>
-<!-- // Navbar -->
+	<!-- Navbar -->
+		<?php include( ROOT_PATH . '/includes/public/navbar.php'); ?>
+	<!-- // Navbar -->
 	
-<div class="content" style="min-height: 400px; border: 1px solid red; ">
+	<div class="content" >
+		<!-- full post div -->
+		<div class="full-post-div">
+			<h2 class="post-title"><?php echo $post['title']; ?></h2>
+		</div>
+		<!-- // full post div -->
 
-	<div class="full-post">
-		<h2 style="text-align: center;"><?php echo $post['slug']; ?></h2>
+		<!-- post sidebar -->
+		<div class="post-sidebar">
+
+			<div class="card">
+				<div class="card-header">
+					<h2>Topics</h2>
+				</div>
+				<div class="card-content">
+					<a href="#">Inspiration</a>
+					<a href="#">Motivation</a>
+					<a href="#">Life Lessons</a>
+					<a href="#">Life Advice</a>
+				</div>
+			</div>
+
+		</div>
+		<!-- // post sidebar -->
+
 	</div>
-
-</div>
-
-
 
 </div>
 <!-- // content -->

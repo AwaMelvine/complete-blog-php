@@ -21,6 +21,7 @@ body {
 /* HEADINGS DEFAULT */
 h1, h2, h3, h4, h5, h6 {
 	color: #444;
+	font-family: 'Averia Serif Libre', cursive;
 }
 
 a {
@@ -287,6 +288,57 @@ form input:focus {
 	text-align: right; 
 	padding: 10px;
 }
+
+/* * * * * * * * *
+* SINGLE PAGE 
+* * * * * * * * */
+.full-post-div {
+	width: 75%;
+	float: left;
+	min-height: 300px;
+	border: 1px solid #e4e1e1;
+	border-radius: 2px;
+}
+
+.full-post-div h2.post-title {
+	margin-top: 10px;
+	text-align: center;
+}
+
+.post-sidebar {
+	width: 24%;
+	float: left;
+	margin-left: 5px;
+	min-height: 400px;
+}
+
+.post-sidebar .card {
+	width: 95%;
+	margin: 10px auto;
+	border: 1px solid #e4e1e1;
+	border-radius: 10px 10px 0px 0px;
+}
+
+.post-sidebar .card .card-header {
+	padding: 15px;
+	text-align: center;
+	color: white;
+	border-radius: 3px 3px 0px 0px;
+	background: #3E606F;
+	color: white;
+}
+
+.post-sidebar .card .card-content a {
+	display: block;
+	box-sizing: border-box;
+	padding: 5px 10px;
+	border-bottom: 1px solid #e4e1e1;
+}
+
+.post-sidebar .card .card-content a:hover {
+	background: pink;
+}
+
 
 .footer {
   position: absolute;

@@ -48,7 +48,7 @@
 				<div class="post_info">
 					<h3><?php echo $post['title'] ?></h3>
 					<div class="info">
-						<span>Dec 25, 2017</span>
+						<span><?php echo date("F j, Y ", strtotime($post["created_at"])); ?></span>
 						<span class="read_more">Read more...</span>
 					</div>
 				</div>
