@@ -1,14 +1,20 @@
 <?php include('includes/public/config.php'); ?>
 
-<?php include('includes/public/registration_login.php'); ?>
-
 <?php include('includes/all_functions.php'); ?>
 
 <?php include('includes/public/head_section.php'); ?>
 
 <?php 
 	
-	$posts = getPublishedPosts();
+	if (isset($_GET['topic'])) {
+		$topic_id = $_GET['topic'];
+
+		$posts = getPublishedPostsByTopic($topic_id);
+		
+	}
+
+	// echo "<pre>", var_dump($posts) , "</pre>";
+	// die();
 
 ?>
 
@@ -23,17 +29,15 @@
 	<?php include( ROOT_PATH . '/includes/public/navbar.php'); ?>
 <!-- // Navbar -->
 
-<!-- Banner -->
-	<?php include( ROOT_PATH . '/includes/public/banner.php'); ?>
-<!-- // Banner -->
-
 <!-- Messages -->
 	<?php include( ROOT_PATH . '/includes/public/messages.php'); ?>
 <!-- // Messages -->
 
 <!-- content -->
 <div class="content">
-	<h2 class="content-title">Recent Articles</h2>
+	<h2 class="content-title">
+		Articles on <u><?php echo getTopicNameById($topic_id); ?></u>
+	</h2>
 	<hr>
 
 	<?php foreach ($posts as $post): ?>
@@ -42,7 +46,7 @@
 
 			<?php if (isset($post['topic']['name'])): ?>
 				<a 
-					href="<?php echo BASE_URL . 'filtered_posts.php?topic=' . $post['topic']['id'] ?>"
+					href="posts_by_topics.php?slug=<?php echo $post['topic']['slug'] ?>" 
 					class="btn category">
 					<?php echo $post['topic']['name'] ?>
 				</a>

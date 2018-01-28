@@ -46,20 +46,6 @@
 			}
 		}
 
-		// Ensure no user registers twice
-		//  $sql_name = "SELECT * FROM users WHERE username='$username'";
-		//  $sql_email = "SELECT * FROM users WHERE email='$email'";
-
-		//  $result_name = mysqli_query($conn, $sql_name);
-		//  $result_email = mysqli_query($conn, $sql_email);
-
-		//  if (mysqli_num_rows($result_name) > 0) {
-		// array_push($errors, "Username already exists");
-		//  }
-		//  if (mysqli_num_rows($result_email) > 0) {
-		// array_push($errors, "Email already exits");
-		//  }
-
 		// register user if there are no errors in the form
 		if (count($errors) == 0) {
 			$password = md5($password_1);//encrypt the password before saving in the database
@@ -112,7 +98,6 @@
 			} 
 		}
 	}
-
 
 
 
