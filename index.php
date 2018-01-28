@@ -38,7 +38,7 @@
 
 	<?php foreach ($posts as $post): ?>
 		<div class="post" style="margin-left: 0px;">
-			<img src="static/images/<?php echo $post['image']; ?>" class="post_image" alt="">
+			<img src="<?php echo BASE_URL . '/static/images/' . $post['image']; ?>" class="post_image" alt="">
 			<a 
 				href="posts_by_topics.php?slug=<?php echo $post['topic']['slug'] ?>" 
 				class="btn category">
