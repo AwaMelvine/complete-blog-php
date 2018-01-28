@@ -9,5 +9,6 @@
 	}
 
 	define("ROOT_PATH", $_SERVER["DOCUMENT_ROOT"] . "/youtube/complete-blog-php");
+	define("BASE_URL", "http://localhost/youtube/complete-blog-php/");
 
 ?>

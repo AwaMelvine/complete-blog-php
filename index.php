@@ -27,9 +27,9 @@
 	<?php include( ROOT_PATH . '/includes/public/banner.php'); ?>
 <!-- // Banner -->
 
-<!-- Banner -->
+<!-- Messages -->
 	<?php include( ROOT_PATH . '/includes/public/messages.php'); ?>
-<!-- // Banner -->
+<!-- // Messages -->
 
 <!-- content -->
 <div class="content">
@@ -40,7 +40,8 @@
 		<div class="post" style="margin-left: 0px;">
 			<img src="static/images/<?php echo $post['image']; ?>" class="post_image" alt="">
 			<a 
-				href="posts_by_topics.php?slug=<?php echo $post['topic']['slug'] ?>" class="btn category">
+				href="posts_by_topics.php?slug=<?php echo $post['topic']['slug'] ?>" 
+				class="btn category">
 				<?php echo $post['topic']['name'] ?>
 			</a>
 

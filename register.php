@@ -1,7 +1,10 @@
 <!-- the order of including these files is important -->
 <?php  include('includes/public/config.php'); ?>
+
+<!-- Source code for handling registration and login -->
 <?php  include('includes/public/registration_login.php'); ?>
 
+<!-- Section containing all css and js links -->
 <?php include('includes/public/head_section.php'); ?>
 
 <title>LifeBlog | Sign up </title>
@@ -21,24 +24,24 @@
 		<h2>Register on LifeBlog</h2>
 		<?php include(ROOT_PATH . '/includes/public/errors.php') ?>
 		<input 
-		type="text"
+		 type="text"
 		 name="username"
 		 value="<?php echo $username; ?>" 
 		 placeholder="Username">
 
 		<input 
-		type="email"
+		 type="email"
 		 name="email"
 		 value="<?php echo $email ?>" 
 		 placeholder="Email">
 
 		<input 
-		type="password"
+		 type="password"
 		 name="password_1"
 		 placeholder="Password">
 
 		<input 
-		type="password"
+		 type="password"
 		 name="password_2"
 		 placeholder="Password confirmation">
 

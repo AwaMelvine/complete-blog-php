@@ -18,7 +18,7 @@
 		</div>
 
 		<div class="login_div">
-			<form action="index.php" method="post" >
+			<form action="<?php echo BASE_URL . 'register.php'; ?>" method="post" >
 				<h2>Login</h2>
 				<div style="width: 60%; margin: 0px auto;">
 					<?php include(ROOT_PATH . '/includes/public/errors.php') ?>
