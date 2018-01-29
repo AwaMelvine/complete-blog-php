@@ -1,0 +1,183 @@
+/* * * * * * * * * *
+*
+* STYLING DEFAULTS
+*
+* * * * * * * * * */
+* {
+	margin: 0px; padding: 0px;
+}
+a {
+	text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Noto Serif', serif;
+}
+
+/* form default */
+form {
+	width: 60%;
+	margin: 5px auto;
+	padding-bottom: 50px;
+}
+form input, form select {
+	width: 100%;
+	display: block;
+	padding: 13px 13px;
+	font-size: 1em;
+	margin: 5px auto 10px;
+	border-radius: 3px;
+	box-sizing : border-box;
+	background: transparent;
+	border: 1px solid #3E606F;
+}
+form button {
+	float: right;
+	margin-left: 24%;
+}
+form input:focus {
+	outline: none;
+}
+
+/* button default */
+.btn {
+	color: white;
+	background: #4E6166;
+	text-align: center;
+	border: none;
+	border-radius: 5px;
+	display: block;
+	letter-spacing: .1em;
+	padding: 13px 20px;
+	text-decoration: none;
+}
+/* * * * * * * * * *
+*
+* HEADER
+*
+* * * * * * * * * */
+
+.header {
+	padding: 15px 45px;
+	font-family: 'Noto Serif', serif;
+	color: white;
+	background: black;
+}
+.header .logo {
+	width: 50%;
+	float: left;
+}
+.header .logo h1 {
+	color: white;
+}
+.header .user-info {
+	width: 10%;
+	margin-top: 10px;
+	float: right;
+}
+.header .logout-btn {
+	color: red;
+	text-decoration: none;
+}
+.header:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+/* * * * * * * * * *
+*
+* DASHBOARD
+*
+* * * * * * * * * */
+.container {
+	width: 80%;
+	margin: 5px auto 50px;
+	border: 1px solid #BFBCB3;
+}
+.container:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.container.dashboard h1 {
+	text-align: center;
+	margin: 25px;
+}
+.container.dashboard .stats a {
+	display: inline-block;
+	padding: 30px;
+	margin: 5px;
+	width: 25%;
+	text-align: center;
+	border-radius: 3px;
+	border: 1px solid #BFBCB3;
+}
+.container.dashboard .stats a.first {
+	margin-left: 25px;
+}
+
+.container.dashboard .stats a:hover {
+	cursor: pointer;
+	background-color: #E1E1E1;
+}
+
+.container.dashboard .buttons {
+	margin-left: 15px;
+}
+
+.container.dashboard .buttons a {
+	display: inline-block;
+	margin: 10px;
+	text-decoration: none;
+	color: #444;
+	padding: 10px 25px;
+	border: none;
+	background-color: #0E7D92;
+	color: white;
+}
+
+/* * * * * * * * * *
+*
+* PAGE CONTENT
+*
+* * * * * * * * * */
+
+.container.content .menu {
+	width: 24%;
+	float: left;
+	padding: 20px;
+}
+
+.container.content .action {
+	width: 71.71%;
+	float: left;
+	text-align: center;
+}
+.container.content .action .page-title {
+	margin: 25px;
+}
+
+.container .card .card-header {
+	padding: 10px;
+	text-align: center;
+	border-radius: 3px 3px 0px 0px;
+	background: #3E606F;
+}
+
+.container .card .card-header h2 {
+	color: white;
+}
+
+.container .card .card-content a {
+	display: block;
+	box-sizing: border-box;
+	padding: 8px 10px;
+	border-bottom: 1px solid #e4e1e1;
+	color: #444;
+}
+
+.container .card .card-content a:hover {
+	padding-left: 20px;
+	background: #F9F9F9;
+	transition: 0.1s;
+}
