@@ -53,8 +53,6 @@
 					  VALUES('$username', '$email', '$password', now(), now())";
 			mysqli_query($conn, $query);
 
-			var_dump($username); die();
-
 			$reg_user_id = mysqli_insert_id($conn); // get id of created user
 
 			$_SESSION['user'] = getUserById($reg_user_id); // put logged in user into session array
