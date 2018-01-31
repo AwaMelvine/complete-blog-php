@@ -10,6 +10,11 @@
 	$isEditingTopic = false;
 	$topic_name = "";
 
+	// Role variables
+	$role_id = 0;
+	$isEditingRole = false;
+	$role_name = "";
+
 	// general variables
 	$errors = [];
 
@@ -71,6 +76,35 @@
 	if (isset($_GET['delete-topic'])) {
 		$topic_id = $_GET['delete-topic'];
 		deleteTopic($topic_id);
+	}
+
+	/* - - - - - - - - - - 
+	-
+	-  Role actions
+	-
+	- - - - - - - - - - -*/
+
+	// if user clicks the create role button
+	if (isset($_POST['create_role'])) {
+		createRole($_POST);
+	}
+
+	// if user clicks the Edit role button
+	if (isset($_GET['edit-role'])) {
+		$isEditingRole = true;
+		$role_id = $_GET['edit-role'];
+		editRole($role_id);
+	}
+
+	// if user clicks the update role button
+	if (isset($_POST['update_role'])) {
+		updateRole($_POST);
+	}
+
+	// if user clicks the Delete role button
+	if (isset($_GET['delete-role'])) {
+		$role_id = $_GET['delete-role'];
+		deleteRole($role_id);
 	}
 
 
@@ -256,9 +290,6 @@
 			array_push($finalList, $user);
 		}
 
-		// echo "<pre>", var_dump($finalList), "</pre>";
-		// die();
-
 		return $finalList;
 	}
 
@@ -338,7 +369,7 @@
 
 	function updateTopic($request_values)
 	{
-		global $conn, $topic_name, $topic_id;
+		global $conn, $errors, $topic_name, $topic_id;
 
 		$topic_name = esc($request_values['topic_name']);
 		$topic_id = esc($request_values['topic_id']);
@@ -364,7 +395,7 @@
 	}
 
 
-	// delete admin user 
+	// delete topic 
 	function deleteTopic($topic_id)
 	{
 		global $conn;
@@ -376,6 +407,145 @@
 			exit(0);
 		}
 	}
+
+
+
+	/* - - - - - - - - - - 
+	-
+	-  Role functions
+	-
+	- - - - - - - - - - -*/
+
+	// get all roles from DB
+	function getAllRoles()
+	{
+		global $conn;
+		$sql = "SELECT * FROM roles";
+
+		$result = mysqli_query($conn, $sql);
+		$roles = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+		return $roles;
+	}
+
+	function createRole($request_values)
+	{
+		global $conn, $errors, $role_name;
+
+		$role_name = esc($request_values['role_name']);
+
+		// create slug: if role is "Super Admin", return "super-admin" as slug
+		$role_slug = makeSlug($role_name);
+
+		// validate form
+		if (empty($role_name)) { 
+			array_push($errors, "Role name required"); 
+		}
+
+		// Ensure that no role is saved twice. 
+		$role_check_query = "SELECT * FROM roles WHERE slug='$role_slug' LIMIT 1";
+
+		$result = mysqli_query($conn, $role_check_query);
+
+		if (mysqli_num_rows($result) > 0) { // if topic exists
+			array_push($errors, "Role already exists");
+		}
+
+		// register topic if there are no errors in the form
+		if (count($errors) == 0) {
+			$query = "INSERT INTO roles (name, slug) 
+					  VALUES('$role_name', '$role_slug')";
+			mysqli_query($conn, $query);
+
+
+			$_SESSION['message'] = "Role created successfully";
+			header('location: roles.php');
+			exit(0);
+		}
+	}
+
+
+	/* * * * * * * * * * * * * * * * * * * * *
+	* - Takes role id as parameter
+	* - Fetches the role from database
+	* - sets role fields on form for editing
+	* * * * * * * * * * * * * * * * * * * * * */
+	function editRole($role_id)
+	{
+		global $conn, $role_name, $isEditingRole, $role_id;
+
+		$sql = "SELECT * FROM roles WHERE id=$role_id LIMIT 1";
+		$result = mysqli_query($conn, $sql);
+		$role = mysqli_fetch_assoc($result);
+
+		// set form values ($role_name) on the form to be updated
+		$role_name = $role['name'];
+	}
+
+	function updateRole($request_values)
+	{
+		global $conn, $errors, $role_name, $role_id;
+
+		$role_name = esc($request_values['role_name']);
+		$role_id = esc($request_values['role_id']);
+
+		// create slug: if role is "Super Admin", return "super-admin" as slug
+		$role_slug = makeSlug($role_name);
+
+
+		// validate form
+		if (empty($role_name)) { 
+			array_push($errors, "Role name required"); 
+		}
+
+		// register role if there are no errors in the form
+		if (count($errors) == 0) {
+			$query = "UPDATE roles SET name='$role_name', slug='$role_slug' WHERE id=$role_id";
+			mysqli_query($conn, $query);
+
+			$_SESSION['message'] = "Role updated successfully";
+			header('location: roles.php');
+			exit(0);
+		}
+	}
+
+
+	// delete admin role 
+	function deleteRole($role_id)
+	{
+		global $conn;
+		$sql = "DELETE FROM roles WHERE id=$role_id";
+
+		if (mysqli_query($conn, $sql)) {
+			$_SESSION['message'] = "Role successfully deleted";
+			header("location: roles.php");
+			exit(0);
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

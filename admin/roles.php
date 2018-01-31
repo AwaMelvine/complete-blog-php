@@ -4,11 +4,11 @@
 <?php include(ROOT_PATH . '/includes/admin/head_section.php'); ?>
 
 <?php 
-	// Get all topics from DB
-	$topics = getAllTopics();	
+	// Get all roles from DB
+	$roles = getAllRoles();	
 ?>
 
-	<title>Admin | Manage Topics</title>
+	<title>Admin | Manage Roles</title>
 </head>
 <body>
 
@@ -22,30 +22,30 @@
 
 		<!-- Middle form - to create and edit -->
 		<div class="action">
-			<h1 class="page-title">Create/Edit Topics</h1>
+			<h1 class="page-title">Create/Edit Roles</h1>
 
-			<form method="post" action="<?php echo BASE_URL . 'admin/topics.php'; ?>" >
+			<form method="post" action="<?php echo BASE_URL . 'admin/roles.php'; ?>" >
 
 				<!-- validation errors for the form -->
 				<?php include(ROOT_PATH . '/includes/public/errors.php') ?>
 
-				<!-- if editing topic, the id is required to identify that topic -->
-				<?php if ($isEditingTopic === true): ?>
-					<input type="hidden" name="topic_id" value="<?php echo $topic_id; ?>">
+				<!-- if editing role, the id is required to identify that role -->
+				<?php if ($isEditingRole === true): ?>
+					<input type="hidden" name="role_id" value="<?php echo $role_id; ?>">
 				<?php endif ?>
 
 				<input 
 					type="text"
-					name="topic_name"
-					value="<?php echo $topic_name; ?>" 
-					placeholder="Topic">
+					name="role_name"
+					value="<?php echo $role_name; ?>" 
+					placeholder="Role">
 
 				
-				<!-- if editing topic, display the update button instead of create button -->
-				<?php if ($isEditingTopic === true): ?> 
-					<button type="submit" class="btn" name="update_topic">UPDATE</button>
+				<!-- if editing user, display the update button instead of create button -->
+				<?php if ($isEditingRole === true): ?> 
+					<button type="submit" class="btn" name="update_role">UPDATE</button>
 				<?php else: ?>
-					<button type="submit" class="btn" name="create_topic">Save Topic</button>
+					<button type="submit" class="btn" name="create_role">Save Role</button>
 				<?php endif ?>
 
 			</form>
@@ -58,29 +58,29 @@
 			<!-- Display notification message -->
 			<?php include(ROOT_PATH . '/includes/public/messages.php') ?>
 
-			<?php if (empty($topics)): ?>
-				<h1>No topics in the database.</h1>
+			<?php if (empty($roles)): ?>
+				<h1>No roles in the database.</h1>
 			<?php else: ?>
 				<table class="table">
 					<thead>
 						<th>N</th>
-						<th>Topic Name</th>
+						<th>Role Name</th>
 						<th colspan="2">Action</th>
 					</thead>
 					<tbody>
-					<?php foreach ($topics as $key => $topic): ?>
+					<?php foreach ($roles as $key => $role): ?>
 						<tr>
 							<td><?php echo $key + 1; ?></td>
-							<td><?php echo $topic['name']; ?></td>
+							<td><?php echo $role['name']; ?></td>
 							<td>
 								<a class="btn edit"
-									href="topics.php?edit-topic=<?php echo $topic['id'] ?>">
+									href="roles.php?edit-role=<?php echo $role['id'] ?>">
 									edit
 								</a>
 							</td>
 							<td>
 								<a class="btn delete"								
-									href="topics.php?delete-topic=<?php echo $topic['id'] ?>">delete
+									href="roles.php?delete-role=<?php echo $role['id'] ?>">delete
 								</a>
 							</td>
 						</tr>
