@@ -11,10 +11,11 @@
 	$admins = getAdminUsers();	
 ?>
 
-	<title>Admin | Create Admin user</title>
+	<title>Admin | Manage users</title>
 </head>
 <body>
 
+	<!-- admin navbar -->
 	<?php include(ROOT_PATH . '/includes/admin/header.php') ?>
 
 	<div class="container content">
@@ -22,9 +23,9 @@
 		<!-- Left side menu -->
 		<?php include(ROOT_PATH . '/includes/admin/menu.php') ?>
 
-		<!-- Middle form - to create and edit admin -->
+		<!-- Middle form - to create and edit  -->
 		<div class="action">
-			<h1 class="page-title">Create Admin User</h1>
+			<h1 class="page-title">Create/Edit Admin User</h1>
 
 			<form method="post" action="<?php echo BASE_URL . 'admin/users.php'; ?>" >
 
@@ -76,7 +77,7 @@
 
 			</form>
 		</div>
-		<!-- // Middle form - to create and edit admin -->
+		<!-- // Middle form - to create and edit -->
 
 		<!-- Display records from DB-->
 		<div class="table-div">
