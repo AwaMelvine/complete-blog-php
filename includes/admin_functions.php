@@ -10,11 +10,6 @@
 		createAdmin($_POST);
 	}
 
-	// if user clicks the create admin button
-	if (isset($_POST['update_admin'])) {
-		updateAdmin($_POST);
-	}
-
 	// if user clicks the Edit admin button
 	if (isset($_GET['edit-admin'])) {
 		$isEditingUser = true;
@@ -22,10 +17,15 @@
 		editAdmin($admin_id);
 	}
 
+	// if user clicks the create admin button
+	if (isset($_POST['update_admin'])) {
+		updateAdmin($_POST);
+	}
+
 	// if user clicks the Delete admin button
 	if (isset($_GET['delete-admin'])) {
 		$admin_id = $_GET['delete-admin'];
-		editAdmin($admin_id);
+		deleteAdmin($admin_id);
 	}
 
 
@@ -105,7 +105,8 @@
 			}
 
 			$_SESSION['message'] = "Admin user created successfully";
-			header('location: create_user.php');
+			header('location: users.php');
+			exit(0);
 		}
 
 	}
@@ -151,10 +152,6 @@
 			$role_id = $request_values['role_id'];
 		}
 
-		// echo "<pre>", var_dump($request_values), "</pre>";
-		// die();
-
-
 		// register user if there are no errors in the form
 		if (count($errors) == 0) {
 			//encrypt the password (security purposes)
@@ -171,6 +168,20 @@
 
 			$_SESSION['message'] = "Admin user updated successfully";
 			header('location: users.php');
+			exit(0);
+		}
+	}
+
+	// delete admin user 
+	function deleteAdmin($admin_id)
+	{
+		global $conn;
+		$sql = "DELETE FROM users WHERE id=$admin_id";
+
+		if (mysqli_query($conn, $sql)) {
+			$_SESSION['message'] = "User successfully deleted";
+			header("location: users.php");
+			exit(0);
 		}
 	}
 

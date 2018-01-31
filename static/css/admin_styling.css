@@ -206,9 +206,22 @@ th, td {
 	float: left;
 	width: 47%;
 }
+.table-div .message {
+	width: 90%;
+	margin-top: 20px;
+}
 
 .table-div table {
 	width: 90%;
+}
+
+.table-div .edit {
+	padding: 2px;
+	background: #004220;
+}
+.table-div .delete {
+	padding: 2px;
+	background: #F70E1A;
 }
 
 /* * * * * * * * * *

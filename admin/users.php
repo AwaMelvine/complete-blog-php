@@ -1,18 +1,15 @@
 <?php  include('../includes/public/config.php'); ?>
 <?php  include(ROOT_PATH . '/includes/admin_functions.php'); ?>
 
-	<?php include(ROOT_PATH . '/includes/admin/head_section.php'); ?>
+<?php include(ROOT_PATH . '/includes/admin/head_section.php'); ?>
 
-	<?php 
-	
+<?php 
+	// Get all admin roles from DB
 	$roles = getAdminRoles();	
+
+	// Get all admin users from DB
 	$admins = getAdminUsers();	
-
-	// echo "<pre>", var_dump($isEditingUser), "</pre>";
-	// die();
-
-	?>
-
+?>
 
 	<title>Admin | Create Admin user</title>
 </head>
@@ -24,16 +21,17 @@
 		
 		<!-- Left side menu -->
 		<?php include(ROOT_PATH . '/includes/admin/menu.php') ?>
-		<!-- //Left side menu -->
 
 		<!-- Middle form - to create and edit admin -->
 		<div class="action">
 			<h1 class="page-title">Create Admin User</h1>
 
 			<form method="post" action="<?php echo BASE_URL . 'admin/users.php'; ?>" >
-				
+
+				<!-- validation errors for the form -->
 				<?php include(ROOT_PATH . '/includes/public/errors.php') ?>
 
+				<!-- if editing user, the id is required to identify that user -->
 				<?php if ($isEditingUser === true): ?>
 					<input type="hidden" name="admin_id" value="<?php echo $admin_id; ?>">
 				<?php endif ?>
@@ -69,11 +67,13 @@
 					<?php endforeach ?>
 				</select>
 				
+				<!-- if editing user, display the update button instead of create button -->
 				<?php if ($isEditingUser === true): ?> 
 					<button type="submit" class="btn" name="update_admin">UPDATE</button>
 				<?php else: ?>
 					<button type="submit" class="btn" name="create_admin">Save User</button>
 				<?php endif ?>
+
 			</form>
 		</div>
 		<!-- // Middle form - to create and edit admin -->
@@ -95,18 +95,25 @@
 						<th colspan="2">Action</th>
 					</thead>
 					<tbody>
-					<?php foreach ($admins as $admin): ?>
+					<?php foreach ($admins as $key => $admin): ?>
 						<tr>
-							<td>1</td>
+							<td><?php echo $key + 1; ?></td>
 							<td>
 								<?php echo $admin['username']; ?>, &nbsp;
 								<?php echo $admin['email']; ?>	
 							</td>
 							<td><?php echo $admin['role']; ?></td>
 							<td>
-								<a href="users.php?edit-admin=<?php echo $admin['id'] ?>">edit</a>
+								<a class="btn edit"
+									href="users.php?edit-admin=<?php echo $admin['id'] ?>">
+									edit
+								</a>
 							</td>
-							<td><a href="users.php?delete-admin=<?php echo $admin['id'] ?>">delete</a></td>
+							<td>
+								<a class="btn delete"								
+									href="users.php?delete-admin=<?php echo $admin['id'] ?>">delete
+								</a>
+							</td>
 						</tr>
 					<?php endforeach ?>
 					</tbody>
@@ -116,7 +123,6 @@
 		<!-- // Display records from DB -->
 
 	</div>
-
 
 </body>
 </html>
