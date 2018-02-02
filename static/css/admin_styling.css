@@ -3,17 +3,11 @@
 * STYLING DEFAULTS
 *
 * * * * * * * * * */
-* {
-	margin: 0px; padding: 0px;
-}
+* { margin: 0px; padding: 0px; }
 /* Links */
-a {
-	text-decoration: none;
-}
+a { text-decoration: none; }
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
-	font-family: 'Noto Serif', serif;
-}
+h1, h2, h3, h4, h5, h6 { font-family: 'Noto Serif', serif; }
 
 /* forms */
 form {
@@ -21,7 +15,7 @@ form {
 	margin: 5px auto;
 	padding-bottom: 50px;
 }
-form input, form select {
+form input, form select, form textarea {
 	width: 100%;
 	display: block;
 	padding: 13px 13px;
@@ -52,6 +46,10 @@ th, td {
     text-align: left;
     border: 1px solid #ddd;
 }
+th {
+	text-align: center;
+}
+
 
 /* buttons */
 .btn {
@@ -201,6 +199,10 @@ th, td {
 	margin: 25px;
 }
 
+.container.content .action.create-post-div {
+	width: 80%;
+}
+
 /* Table div (Displaying records from DB) */
 .table-div {
 	float: left;
@@ -215,14 +217,25 @@ th, td {
 	width: 90%;
 }
 
+.table-div a.fa {
+	color: white;
+	padding: 3px;
+}
+
 .table-div .edit {
-	padding: 2px;
 	background: #004220;
 }
 .table-div .delete {
-	padding: 2px;
 	background: #F70E1A;
 }
+.table-div .publish {
+	background: red;
+}
+.table-div .unpublish {
+	background: green;
+}
+
+
 
 /* * * * * * * * * *
 *

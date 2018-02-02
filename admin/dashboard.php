@@ -1,4 +1,4 @@
-<?php  include('../includes/public/config.php'); ?>
+<?php  include('../config.php'); ?>
 
 	<?php include(ROOT_PATH . '/includes/admin/head_section.php'); ?>
 
@@ -20,11 +20,11 @@
 		<h1>Welcome</h1>
 
 		<div class="stats">
-			<a class="first">
+			<a href="users.php" class="first">
 				<span>43</span> <br>
 				<span>Newly registered users</span>
 			</a>
-			<a>
+			<a href="posts.php">
 				<span>43</span> <br>
 				<span>Published posts</span>
 			</a>
@@ -37,8 +37,8 @@
 		<br><br><br>
 
 		<div class="buttons">
-			<a href="create_user.php">Add Users</a>
-			<a href="topics.php">Add Posts</a>
+			<a href="users.php">Add Users</a>
+			<a href="posts.php">Add Posts</a>
 		</div>
 
 	</div>

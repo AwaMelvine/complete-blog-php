@@ -1,5 +1,5 @@
 <!-- the order of including these files is important -->
-<?php  include('includes/public/config.php'); ?>
+<?php  include('config.php'); ?>
 
 <!-- Source code for handling registration and login -->
 <?php  include('includes/public/registration_login.php'); ?>

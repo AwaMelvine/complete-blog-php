@@ -1,4 +1,4 @@
-<?php  include('../includes/public/config.php'); ?>
+<?php  include('../config.php'); ?>
 <?php  include(ROOT_PATH . '/includes/admin_functions.php'); ?>
 
 <?php include(ROOT_PATH . '/includes/admin/head_section.php'); ?>

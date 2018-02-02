@@ -33,7 +33,7 @@
 		$user_check_query = "SELECT * FROM users WHERE username='$username' 
 								OR email='$email' LIMIT 1";
 
-		$result = mysqli_query($db, $user_check_query);
+		$result = mysqli_query($conn, $user_check_query);
 		$user = mysqli_fetch_assoc($result);
 
 		if ($user) { // if user exists
@@ -60,7 +60,7 @@
 			$_SESSION['message'] = "You are now logged in";
 			header('location: index.php');
 		}
-}
+	}
 
 
 	// LOG USER IN
@@ -75,12 +75,13 @@
 			array_push($errors, "Password required"); 
 		}
 
-		if (count($errors) == 0) {
-			// hash password before compare with database password
+		if (empty($errors)) {
 			$password = md5($password);
 
 			$sql = "SELECT * FROM users WHERE username='$username' and password='$password' LIMIT 1";
+
 			$result = mysqli_query($conn, $sql);
+
 			if (mysqli_num_rows($result) > 0) {
 				// get id of created user
 				$reg_user_id = mysqli_fetch_assoc($result)['id']; 
@@ -91,10 +92,16 @@
 
 			  	// redirect to home page
 			  	header('location: index.php');
+			  	exit(0);
 			} else {
 				array_push($errors, 'Wrong credentials');
-			} 
+			}
 		}
+
+
+		
+		
+
 	}
 
 
