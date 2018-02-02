@@ -1,6 +1,30 @@
 <?php  include('../config.php'); ?>
 <?php  include(ROOT_PATH . '/includes/admin_functions.php'); ?>
 
+<?php 
+
+
+
+// //get info from database
+// $result = mysql_query($conn, "SELECT COLUMN_TYPE FROM information_schema.`COLUMNS` WHERE TABLE_NAME = 'users' AND COLUMN_NAME = 'role'");
+
+//     if (!$result) {
+//         echo("<p>Error performing query:" . mysql_error() . "<p>");
+//         exit();
+//     }
+
+// //put data in menu
+// while ( $row = mysql_fetch_array($result)) {
+//     $my_column = $row["role"];
+//     echo ($my_column);
+//     echo "<option name='$my_column' value='$my_column'>$my_column</option>";
+// }
+
+				
+
+
+?>
+
 <?php include(ROOT_PATH . '/includes/admin/head_section.php'); ?>
 
 <?php 
@@ -105,14 +129,12 @@
 							</td>
 							<td><?php echo $admin['role']; ?></td>
 							<td>
-								<a class="btn edit"
+								<a class="fa fa-pencil btn edit"
 									href="users.php?edit-admin=<?php echo $admin['id'] ?>">
-									edit
 								</a>
 							</td>
 							<td>
-								<a class="btn delete"								
-									href="users.php?delete-admin=<?php echo $admin['id'] ?>">delete
+								<a class="fa fa-trash btn delete"								href="users.php?delete-admin=<?php echo $admin['id'] ?>">
 								</a>
 							</td>
 						</tr>
